@@ -1,0 +1,193 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h3 class="display-4">Twitter <i class="fa fa-twitter logo"></i> Stream</h3>
+
+    <div class="row my-4">
+        <div class="d-flex justify-content-center w-100">
+            <button id="btn-start" type="button" class="btn btn-success mx-2" onclick="startStreaming()">
+                Start Streaming
+            </button>
+            <button id="btn-stop" type="button" class="btn btn-danger mx-2" onclick="stopStreaming()" style="display:none">
+                Stop Streaming
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-lg-6 col-xs-12 "></div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Total Tweets</span>
+                    <i class="fa fa-tachometer"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="TotalTweets">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-xs-12"></div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Average Tweet Per Hour</span>
+                    <i class="fa fa-clock-o"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="AverageTweetPerHour">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Average Tweet Per Minute</span>
+                    <i class="fa fa-clock-o"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="AverageTweetPerMinute">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Average Tweet Per Second</span>
+                    <i class="fa fa-clock-o"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="AverageTweetPerSecond">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Url Percentage</span>
+                    <i class="fa fa-link"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="UrlPercentage">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Photo Percentage</span>
+                    <i class="fa fa-picture-o"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="PhotoPercentage">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Emoji Percentage</span>
+                    <i class="fa fa-smile-o"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="EmojiPercentage">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Top Domains</span>
+                    <i class="fa fa-line-chart"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="TopDomains" class="fs-12">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Top Hashtags</span>
+                    <i class="fa fa-hashtag"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="TopHashtags" class="fs-12">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-xs-12 my-2">
+            <div class="card">
+                <div class="card-header text-left d-flex justify-content-between">
+                    <span>Top Emojis</span>
+                    <i class="fa fa-smile-o"></i>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-right">
+                                <h3><span id="TopEmojis" class="fs-12">--</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
